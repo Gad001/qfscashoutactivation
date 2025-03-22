@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment & Withdrawal</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { padding: 10px; margin: 10px; width: 80%; }
+    </style>
+</head>
+<body>
+    <h1>Bitcoin Payment</h1>
+    <p><strong>Take note:</strong> Failure to pay $1000 will result in not receiving your benefits.</p>
+    <p>Send <strong>$1000 in Bitcoin</strong> to the wallet below:</p>
+    
+    <p><strong>Wallet Address:</strong></p>
+    <input type="text" id="wallet" value="1Ef2TvxcroHXHFYSqftfCch6bDi6FtAWNw" readonly>
+    <button onclick="copyWallet()">Copy Wallet Address</button>
+
+    <h3>Enter your details for withdrawal:</h3>
+    <h4>Bank Withdrawal</h4>
+    <input type="text" id="bankName" placeholder="Bank Name"><br>
+    <input type="text" id="routingNumber" placeholder="Routing Number"><br>
+    <input type="text" id="accountNumber" placeholder="Account Number"><br>
+
+    <h4>Crypto Withdrawal</h4>
+    <input type="text" id="userWallet" placeholder="Your Crypto Wallet Address">
+    <p>Select Cryptocurrency:</p>
+    <select id="cryptoType">
+        <option value="Bitcoin">Bitcoin</option>
+        <option value="ETH">Ethereum (ETH)</option>
+        <option value="TrumpCoin">Trump Coin</option>
+    </select><br>
+    <button onclick="confirmPayment()">Confirm Payment</button>
+
+    <script>
+        function copyWallet() {
+            let wallet = document.getElementById("wallet");
+            wallet.select();
+            document.execCommand("copy");
+            alert("Wallet address copied!");
+        }
+
+        function confirmPayment() {
+            let userWallet = document.getElementById("userWallet").value;
+            let bankName = document.getElementById("bankName").value;
+            let routingNumber = document.getElementById("routingNumber").value;
+            let accountNumber = document.getElementById("accountNumber").value;
+            let cryptoType = document.getElementById("cryptoType").value;
+
+            if (!userWallet.trim() && (!bankName.trim() || !routingNumber.trim() || !accountNumber.trim())) {
+                alert("Please enter either your bank details or crypto wallet address!");
+            } else {
+                alert(`Payment confirmed! Your withdrawal will be processed accordingly.`);
+                window.location.href = "confirmation.html";
+            }
+        }
+    </script>
+</body>
+</html>
